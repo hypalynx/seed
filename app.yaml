@@ -1,0 +1,3 @@
+environment: development
+admin-password: super-secret
+port: 8080

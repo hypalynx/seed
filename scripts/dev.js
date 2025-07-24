@@ -35,6 +35,7 @@ const clientConfig = {
   jsxFragment: 'Fragment'
 };
 
+let cssProcess = null;
 let serverProcess = null;
 
 const startServer = () => {
@@ -49,9 +50,24 @@ const startServer = () => {
   });
 };
 
+const startCSSWatch = () => {
+  console.log('🎨 Watching CSS files...');
+  cssProcess = spawn('npx', [
+    'tailwindcss',
+    '-i', './src/styles.css',
+    '-o', './dist/static/styles.css',
+    '--watch'
+  ], {
+    stdio: 'inherit',
+    cwd: workspace
+  });
+};
+
 async function dev() {
   console.log('🏗️  Starting development server...');
   
+  startCSSWatch();
+
   // Build client in watch mode
   const clientContext = await context(clientConfig);
   await clientContext.watch();
@@ -83,6 +99,7 @@ async function dev() {
   process.on('SIGINT', () => {
     console.log('\n🛑 Shutting down...');
     if (serverProcess) serverProcess.kill();
+    if (cssProcess) cssProcess.kill();
     clientContext.dispose();
     serverContext.dispose();
     process.exit(0);

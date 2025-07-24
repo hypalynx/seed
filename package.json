@@ -7,16 +7,23 @@
     "build": "node scripts/build.js",
     "start": "node dist/server.js",
     "test": "node --test",
+    "test:coverage": "node --experimental-test-coverage --test",
     "test:integration": "node --test tests/integration.test.js"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
     "express": "^4.21.2",
+    "pino": "^9.7.0",
+    "pino-http": "^10.5.0",
     "preact": "^10.24.3",
-    "preact-render-to-string": "^6.5.11"
+    "preact-render-to-string": "^6.5.11",
+    "tailwindcss": "^4.1.11",
+    "wouter-preact": "^3.7.1",
+    "yaml": "^2.8.0"
   },
   "devDependencies": {
-    "esbuild": "^0.24.2",
-    "@playwright/test": "^1.48.2"
+    "@playwright/test": "^1.48.2",
+    "esbuild": "^0.25.8"
   },
   "engines": {
     "node": ">=20.11.0",

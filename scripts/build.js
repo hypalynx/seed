@@ -32,13 +32,30 @@ const clientConfig = {
   jsxFragment: 'Fragment'
 };
 
+const buildCSS = () => {
+  return new Promise((resolve, reject) => {
+    const cssProcess = spawn('npx', [
+      'tailwindcss',
+      '-i', './src/styles.css',
+      '-o', './dist/static/styles.css',
+      '--minify'
+    ], { stdio: 'inherit' });
+    
+    cssProcess.on('close', (code) => {
+      if (code === 0) resolve();
+      else reject(new Error(`CSS build failed with code ${code}`));
+    });
+  });
+};
+
 async function buildAll() {
   console.log('🏗️  Building for production...');
   
   try {
     await Promise.all([
       build(serverConfig),
-      build(clientConfig)
+      build(clientConfig),
+      buildCSS()
     ]);
     
     console.log('✅ Build completed successfully!');

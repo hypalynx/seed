@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/* CSS Custom Properties - Green/Teal Design System */
+:root {
+  /* Border radius system */
+  --radius: 8px;
+  --radius-sm: 4px;
+  --radius-lg: 12px;
+  
+  /* Light mode - Green/Teal theme with high contrast */
+  --bg: hsl(0, 0%, 100%);                    /* Pure white */
+  --bg-secondary: hsl(150, 20%, 97%);        /* Very light green-gray */
+  --text: hsl(0, 0%, 9%);                    /* Almost black for max contrast */
+  --text-muted: hsl(0, 0%, 45%);             /* Medium gray */
+  --border: hsl(150, 15%, 85%);              /* Light green-gray border */
+  
+  --primary: hsl(170, 76%, 32%);             /* Deep teal-green */
+  --primary-foreground: hsl(0, 0%, 100%);    /* White text */
+  --secondary: hsl(0, 0%, 20%);              /* Dark gray */
+  --secondary-foreground: hsl(0, 0%, 100%);  /* White text */
+  --accent: hsl(162, 88%, 26%);              /* Rich green */
+  --accent-foreground: hsl(0, 0%, 100%);     /* White text */
+  --success: hsl(145, 85%, 25%);             /* Forest green */
+  --success-foreground: hsl(0, 0%, 100%);    /* White text */
+  --warning: hsl(38, 92%, 45%);              /* Amber (darker for contrast) */
+  --warning-foreground: hsl(0, 0%, 9%);      /* Dark text */
+  --destructive: hsl(0, 72%, 45%);           /* Red (darker for contrast) */
+  --destructive-foreground: hsl(0, 0%, 100%); /* White text */
+}
+
+/* Dark mode - Green/Teal for dark backgrounds */
+[data-theme="dark"] {
+  --bg: hsl(150, 15%, 8%);                   /* Very dark green-gray */
+  --bg-secondary: hsl(150, 12%, 12%);        /* Slightly lighter dark green */
+  --text: hsl(0, 0%, 95%);                   /* Off-white */
+  --text-muted: hsl(0, 0%, 65%);             /* Light gray */
+  --border: hsl(150, 15%, 18%);              /* Dark green-gray border */
+  
+  --primary: hsl(170, 76%, 42%);             /* Brighter teal for dark mode */
+  --secondary: hsl(150, 10%, 22%);           /* Dark green-gray */
+  --accent: hsl(162, 88%, 36%);              /* Brighter green */
+  --success: hsl(145, 85%, 35%);             /* Brighter forest green */
+  --warning: hsl(38, 92%, 55%);              /* Brighter amber */
+  --destructive: hsl(0, 72%, 55%);           /* Brighter red */
+}
+
+/* Utility classes */
+.rounded { border-radius: var(--radius); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-lg { border-radius: var(--radius-lg); }
+
+/* Background utilities */
+.bg-primary { background: var(--bg); }
+.bg-secondary { background: var(--bg-secondary); }
+.text-primary { color: var(--text); }
+.text-muted { color: var(--text-muted); }
+.border-primary { border-color: var(--border); }
+
+/* Component classes */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--primary);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+.btn-secondary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+.btn-accent:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background: var(--success);
+  color: var(--success-foreground);
+}
+.btn-success:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-warning {
+  background: var(--warning);
+  color: var(--warning-foreground);
+}
+.btn-warning:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-destructive {
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+}
+.btn-destructive:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+}
+.btn-ghost:hover {
+  background: var(--bg-secondary);
+}
+
+/* Card component */
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.5rem 0;
+}
+
+.card-description {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Input components */
+.input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Badge component */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+}
+
+.badge-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.badge-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.badge-success {
+  background: var(--success);
+  color: var(--success-foreground);
+}
+
+.badge-warning {
+  background: var(--warning);
+  color: var(--warning-foreground);
+}
+
+.badge-destructive {
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+}
