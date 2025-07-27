@@ -1,5 +1,17 @@
 # Seed
 
+## Getting Started
+
+- `npm run dev` to run this in watch mode.
+- `npm run build` to build this project.
+- `npm run build -- --detail` to build with bundle analysis.
+
+## TODO
+  - uplot? (now?) or just docs
+  - linter
+  - prettier
+  - database (sqlite 99%?)
+
 A starter template for building web services, prioritising speed,
 simplicity and maintenance cost.
 
