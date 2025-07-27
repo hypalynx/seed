@@ -29,7 +29,7 @@ const clientConfig = {
   entryPoints: {
     client: path.join(workspace, "src", "client.jsx"),
   },
-  outdir: path.join(workspace, "dist", "static"),
+  outdir: path.join(workspace, "dist", "assets"),
   jsxFactory: "h",
   jsxFragment: "Fragment",
 };
@@ -78,19 +78,19 @@ describe("Phase 1: Integration Tests", () => {
     const html = await response.text();
 
     assert.equal(response.status, 200);
-    assert.ok(html.includes("Seed App"), "Should contain app title");
+    assert.ok(html.includes("Stack"), "Should contain app title");
     assert.ok(
       html.includes("Minimal Preact starter"),
       "Should contain app description",
     );
     assert.ok(
-      html.includes('<script type="module" src="/static/client.js">'),
+      html.includes('<script type="module" src="/assets/client.js">'),
       "Should include client script",
     );
   });
 
   test("should serve client bundle", async () => {
-    const response = await fetch("http://localhost:3001/static/client.js");
+    const response = await fetch("http://localhost:3001/assets/client.js");
 
     assert.equal(response.status, 200);
     assert.ok(response.headers.get("content-type").includes("javascript"));

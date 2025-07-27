@@ -1,0 +1,58 @@
+.gap-4 {
+  display: flex;
+  gap: var(--4);
+}
+
+.grid {
+  border-top: 2px dashed #9c9c9c;
+  border-left: 2px dashed #9c9c9c;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  > div {
+    border-right: 2px dashed #9c9c9c;
+    border-bottom: 2px dashed #9c9c9c;
+    padding: var(--4);
+  }
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+.p-4 {
+  padding: var(--4);
+}
+.py-8 {
+  padding: var(--8) 0;
+}
+
+.max-w-container {
+  max-width: var(--7xl);
+}
+
+.rounded {
+  border-radius: var(--radius);
+}
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+/* Background utilities */
+.bg-primary {
+  background: var(--bg);
+}
+.bg-secondary {
+  background: var(--bg-secondary);
+}
+.text-primary {
+  color: var(--text);
+}
+.text-muted {
+  color: var(--text-muted);
+}
+.border-primary {
+  border-color: var(--border);
+}
+

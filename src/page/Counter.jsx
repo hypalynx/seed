@@ -7,7 +7,7 @@ export const Counter = () => {
   return (
     <div class="min-h-screen bg-gray-50 flex items-center justify-center">
       <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">🌱 Seed App</h1>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">🔥 Stack App</h1>
 
         <p class="text-gray-600 mb-6">Minimal Preact starter with SSR</p>
 

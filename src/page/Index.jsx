@@ -93,11 +93,10 @@ const MainSection = () => {
         Minimal Preact starter with SSR
       </p>
 
-      <div>
+      <div class="flex gap-4">
         <p>
-          Seed is a project that I use to illustrate how web applications can be
-          setup in a simple way, whilst still retaining many desired features
-          such as:
+          Stack is a project that I use to build web applications in a simple
+          way, whilst still retaining many desired features such as:
         </p>
 
         <ul>

@@ -1,147 +1,66 @@
-import js from "@eslint/js";
-import prettier from "eslint-config-prettier";
-import prettierPlugin from "eslint-plugin-prettier";
-import react from "eslint-plugin-react";
-import reactHooks from "eslint-plugin-react-hooks";
-import nodePlugin from "eslint-plugin-n";
+import js from '@eslint/js'
 
 export default [
   // Global ignores
   {
-    ignores: [
-      "node_modules/**",
-      "dist/**",
-      "build/**",
-      "public/**",
-      "coverage/**",
-      "*.min.js",
-    ],
+    ignores: ['node_modules/**', 'dist/**', 'build/**', 'public/**', 'coverage/**', '*.min.js'],
   },
 
   // Base configuration for all files
   {
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      parser: "@babel/eslint-parser",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+      },
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      'no-unused-vars': 'warn',
+      'no-console': 'warn',
+    },
+  },
+
+  // Frontend specific (JSX files)
+  {
+    files: ['src/**/*.{js,jsx}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-          presets: ["@babel/preset-react"],
-        },
         ecmaFeatures: {
           jsx: true,
         },
       },
       globals: {
-        console: "readonly",
-        process: "readonly",
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        fetch: 'readonly',
+        h: 'readonly', // Preact's createElement
+        Fragment: 'readonly',
       },
     },
-    plugins: {
-      prettier: prettierPlugin,
-    },
     rules: {
-      ...js.configs.recommended.rules,
-      "prettier/prettier": "error",
-      "no-unused-vars": "warn",
-      "no-console": "warn",
+      'no-console': 'off',
     },
   },
 
-  // Frontend/Preact specific configuration
+  // Backend specific
   {
-    files: [
-      "src/**/*.{js,jsx}",
-      "client/**/*.{js,jsx}",
-      "components/**/*.{js,jsx}",
-    ],
+    files: ['server.js', 'src/server.js'],
     languageOptions: {
       globals: {
-        window: "readonly",
-        document: "readonly",
-        navigator: "readonly",
-        fetch: "readonly",
-      },
-    },
-    plugins: {
-      react,
-      "react-hooks": reactHooks,
-      prettier: prettierPlugin,
-    },
-    settings: {
-      react: {
-        pragma: "h", // Preact uses 'h' instead of 'React.createElement'
-        version: "detect",
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        Buffer: 'readonly',
+        global: 'readonly',
       },
     },
     rules: {
-      ...react.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
-      "react/react-in-jsx-scope": "off", // Not needed in Preact
-      "react/prop-types": "warn",
-      "react/jsx-uses-react": "off",
-      "react/jsx-uses-vars": "error",
-      "no-console": "off", // Allow console in frontend for debugging
+      'no-console': 'off', // Allow console in backend
     },
   },
-
-  // Backend/Express specific configuration
-  {
-    files: [
-      "server/**/*.js",
-      "routes/**/*.js",
-      "middleware/**/*.js",
-      "app.js",
-      "server.js",
-      "index.js",
-    ],
-    languageOptions: {
-      globals: {
-        __dirname: "readonly",
-        __filename: "readonly",
-        Buffer: "readonly",
-        global: "readonly",
-        module: "readonly",
-        require: "readonly",
-        exports: "readonly",
-      },
-    },
-    plugins: {
-      n: nodePlugin,
-      prettier: prettierPlugin,
-    },
-    rules: {
-      ...nodePlugin.configs.recommended.rules,
-      "n/no-unsupported-features/es-syntax": "off",
-      "n/no-missing-import": "off",
-      "n/prefer-global/process": "error",
-      "n/prefer-global/buffer": "error",
-      "no-console": "off", // Allow console in backend
-    },
-  },
-
-  // Configuration files
-  {
-    files: [
-      "*.config.js",
-      "*.config.mjs",
-      "webpack.config.js",
-      "vite.config.js",
-    ],
-    languageOptions: {
-      globals: {
-        module: "readonly",
-        require: "readonly",
-        __dirname: "readonly",
-        process: "readonly",
-      },
-    },
-    rules: {
-      "no-console": "off",
-    },
-  },
-
-  // Apply Prettier config last to override conflicts
-  prettier,
-];
+]

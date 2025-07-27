@@ -1,4 +1,4 @@
-# Seed
+# Stack
 
 ## Getting Started
 
@@ -8,10 +8,11 @@
 
 ## TODO
 
-- linter
-- prettier
 - database (sqlite 99%?)
 - page transition animation
+- docker/k8s config
+- node-cron
+- auth n auth (guest/user/admin)
 
 A starter template for building web services, prioritising speed,
 simplicity and maintenance cost.

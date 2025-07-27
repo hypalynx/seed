@@ -1,0 +1,54 @@
+:root {
+  /* Border radius system */
+  --radius: 8px;
+  --radius-sm: 4px;
+  --radius-lg: 12px;
+
+  --1: 0.25rem; /* 4px */
+  --2: 0.5rem; /* 8px */
+  --3: 0.75rem; /* 12px */
+  --4: 1rem; /* 16px */
+  --5: 1.25rem; /* 20px */
+  --6: 1.5rem; /* 24px */
+  --8: 2rem; /* 32px */
+  --10: 2.5rem; /* 40px */
+  --12: 3rem; /* 48px */
+  --16: 4rem; /* 64px */
+  --7xl: 80rem; /* 1280px */
+
+  /* Light mode - Green/Teal theme with high contrast */
+  --bg: hsl(0, 0%, 100%); /* Pure white */
+  --bg-secondary: hsl(150, 20%, 97%); /* Very light green-gray */
+  --text: hsl(0, 0%, 9%); /* Almost black for max contrast */
+  --text-muted: hsl(0, 0%, 45%); /* Medium gray */
+  --border: hsl(150, 15%, 85%); /* Light green-gray border */
+
+  --primary: hsl(170, 76%, 32%); /* Deep teal-green */
+  --primary-foreground: hsl(0, 0%, 100%); /* White text */
+  --secondary: hsl(0, 0%, 20%); /* Dark gray */
+  --secondary-foreground: hsl(0, 0%, 100%); /* White text */
+  --accent: hsl(162, 88%, 26%); /* Rich green */
+  --accent-foreground: hsl(0, 0%, 100%); /* White text */
+  --success: hsl(145, 85%, 25%); /* Forest green */
+  --success-foreground: hsl(0, 0%, 100%); /* White text */
+  --warning: hsl(38, 92%, 45%); /* Amber (darker for contrast) */
+  --warning-foreground: hsl(0, 0%, 9%); /* Dark text */
+  --destructive: hsl(0, 72%, 45%); /* Red (darker for contrast) */
+  --destructive-foreground: hsl(0, 0%, 100%); /* White text */
+}
+
+/* Dark mode - Green/Teal for dark backgrounds */
+[data-theme="dark"] {
+  --bg: hsl(150, 15%, 8%); /* Very dark green-gray */
+  --bg-secondary: hsl(150, 12%, 12%); /* Slightly lighter dark green */
+  --text: hsl(0, 0%, 95%); /* Off-white */
+  --text-muted: hsl(0, 0%, 65%); /* Light gray */
+  --border: hsl(150, 15%, 18%); /* Dark green-gray border */
+
+  --primary: hsl(170, 76%, 42%); /* Brighter teal for dark mode */
+  --secondary: hsl(150, 10%, 22%); /* Dark green-gray */
+  --accent: hsl(162, 88%, 36%); /* Brighter green */
+  --success: hsl(145, 85%, 35%); /* Brighter forest green */
+  --warning: hsl(38, 92%, 55%); /* Brighter amber */
+  --destructive: hsl(0, 72%, 55%); /* Brighter red */
+}

@@ -1,0 +1,31 @@
+body {
+  font-family: monospace;
+  font-size: 120%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: var(--8);
+}
+
+.nav {
+  height: var(--16);
+  padding: 0 var(--4);
+  color: var(--secondary-foreground);
+  background-color: #80000;
+  > div {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  a,
+  a:visited {
+    color: var(--secondary-foreground);
+    text-decoration: none;
+  }
+}
+
