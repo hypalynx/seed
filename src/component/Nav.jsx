@@ -1,5 +1,5 @@
-import { h } from 'preact';
-import { Link } from 'wouter-preact';
+import { h } from "preact";
+import { Link } from "wouter-preact";
 
 export const Nav = () => {
   return (
@@ -14,5 +14,5 @@ export const Nav = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};

@@ -7,10 +7,11 @@
 - `npm run build -- --detail` to build with bundle analysis.
 
 ## TODO
-  - uplot? (now?) or just docs
-  - linter
-  - prettier
-  - database (sqlite 99%?)
+
+- linter
+- prettier
+- database (sqlite 99%?)
+- page transition animation
 
 A starter template for building web services, prioritising speed,
 simplicity and maintenance cost.
