@@ -13,7 +13,7 @@ body {
   height: var(--16);
   padding: 0 var(--4);
   color: var(--secondary-foreground);
-  background-color: #80000;
+  background-color: var(--secondary);
   > div {
     margin: 0 auto;
     height: 100%;

@@ -6,11 +6,10 @@ import { h } from 'preact'
 import { App } from './App.jsx'
 import { parse } from 'yaml'
 import { Router } from 'wouter-preact'
+import { createHTML } from './page'
 
 const config = parse(readFileSync('./app.yaml', 'utf8')) // TODO handle if missing?
-console.log(config['environment'])
-
-const isDevelopment = config.environment === 'development'
+console.log(`environment: ${config['environment']}`)
 
 const app = express()
 const port = config.port || 3000
@@ -29,24 +28,8 @@ app.get('/health', (req, res) => {
 // SSR for all other routes
 app.get('*', (req, res) => {
   try {
-    // Render the app server-side
     const appHtml = render(h(Router, { ssrPath: req.path }, h(App)))
-
-    const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stack</title>
-  <link rel="stylesheet" href="/assets/styles.css">
-</head>
-<body>
-  <div id="app" class="min-h-screen">${appHtml}</div>
-  <script type="module" src="/assets/client.js"></script>
-</body>
-</html>`
-
-    res.send(html)
+    res.send(createHTML(appHtml, { assetBase: '/assets' }))
   } catch (error) {
     console.error('SSR Error:', error)
     res.status(500).send('Internal Server Error')
