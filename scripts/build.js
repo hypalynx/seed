@@ -19,8 +19,8 @@ const baseConfig = {
   format: 'esm',
   sourcemap: !isWatch,
   metafile: isDetail,
-  jsxFactory: 'h',
-  jsxFragment: 'Fragment',
+  jsx: 'automatic',
+  jsxImportSource: 'preact',
 }
 
 const createConfig = overrides => ({ ...baseConfig, ...overrides })
@@ -38,6 +38,13 @@ const configs = {
     entryPoints: {
       client: 'src/client.jsx',
       styles: 'src/styles/styles.css',
+    },
+    loader: {
+      '.woff': 'file',
+      '.woff2': 'file',
+      '.ttf': 'file',
+      '.otf': 'file',
+      '.eot': 'file',
     },
     outdir: 'dist/assets',
   }),

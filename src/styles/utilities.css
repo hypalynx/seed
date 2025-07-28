@@ -1,6 +1,11 @@
-.gap-4 {
-  display: flex;
-  gap: var(--4);
+.gap-4 { display: flex; gap: var(--4); }
+.gap-8 { display: flex; gap: var(--8); }
+
+.group-gap-4 * + * { margin-top: var(--4); }
+.group-gap-8 * + * { margin-top: var(--8); }
+
+.flex-col {
+    flex-direction: column;
 }
 
 .grid {

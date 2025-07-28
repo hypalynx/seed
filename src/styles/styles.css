@@ -1,4 +1,5 @@
 @import './reset.css';
+@import "@fontsource/manrope";
 @import './vars.css';
 @import './base.css';
 @import './components.css';

@@ -15,6 +15,7 @@
     "test:integration": "node --test tests/integration.test.js"
   },
   "dependencies": {
+    "@fontsource/manrope": "^5.2.6",
     "express": "^4.21.2",
     "lucide-preact": "^0.525.0",
     "preact": "^10.24.3",
