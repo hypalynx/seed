@@ -1,12 +1,9 @@
 import { spawn } from 'node:child_process'
-import { writeFile } from 'node:fs/promises'
-import { createHTML } from '../src/page.js'
-import { rm, mkdir, cp } from 'node:fs/promises'
+import { writeFile, rm, mkdir, cp } from 'node:fs/promises'
 import { context, build, analyzeMetafile } from 'esbuild'
-import path from 'node:path'
-// TODO structured logging for the app would be nice. both server/client
+import { createHTML } from '../src/page.js'
 
-await rm('dist', { recursive: true, force: true }) // clean before proceeding
+await rm('dist', { recursive: true, force: true })
 await mkdir('dist', { recursive: true })
 
 let serverProcess = null
@@ -18,27 +15,27 @@ const baseConfig = {
   bundle: true,
   format: 'esm',
   sourcemap: !isWatch,
-  metafile: isDetail,
+  metafile: true,
   jsx: 'automatic',
   jsxImportSource: 'preact',
 }
 
-const createConfig = overrides => ({ ...baseConfig, ...overrides })
-
 const configs = {
-  server: createConfig({
+  server: {
+    ...baseConfig,
     platform: 'node',
-    // packages: 'bundle', // 'external' leaves deps alone, expects npm i.
     packages: 'external',
     entryPoints: { server: 'src/server.js' },
     outdir: 'dist',
-  }),
-  client: createConfig({
+  },
+  client: {
+    ...baseConfig,
     platform: 'browser',
     entryPoints: {
       client: 'src/client.jsx',
       styles: 'src/styles/styles.css',
     },
+    entryNames: '[name].[hash]',
     loader: {
       '.woff': 'file',
       '.woff2': 'file',
@@ -47,22 +44,50 @@ const configs = {
       '.eot': 'file',
     },
     outdir: 'dist/assets',
-  }),
+  },
 }
 
 async function main() {
   await copyAssets()
-  await generateStaticHTML()
   isWatch ? dev() : buildApp()
+}
+
+function extractAssetNames(metafile) {
+  const assets = {}
+  for (const [outputPath, info] of Object.entries(metafile.outputs)) {
+    if (info.entryPoint) {
+      const originalName = info.entryPoint
+        .split('/')
+        .pop()
+        .replace(/\.[^.]+$/, '')
+      assets[originalName] = outputPath.replace('dist/assets/', '')
+    }
+  }
+  return assets
+}
+
+async function generateManifestAndHTML(assets) {
+  await writeFile('dist/assets-manifest.json', JSON.stringify(assets, null, 2))
+  await writeFile('dist/index.html', createHTML('', { assets }))
+  console.log('📦 Manifest and HTML generated:', assets)
+}
+
+async function copyAssets() {
+  await cp('src/assets', 'dist/assets', { recursive: true })
+  console.log('📄 Assets copied')
 }
 
 async function buildApp() {
   console.log(`🚧 Building app (mode: ${isClientOnly ? 'client' : 'full'})`)
 
-  const builds = [build(configs.client)]
-  !isClientOnly && builds.push(build(configs.server))
+  const clientResult = await build(configs.client)
+  const assets = extractAssetNames(clientResult.metafile)
+  await generateManifestAndHTML(assets)
 
-  const results = await Promise.all(builds)
+  const results = [clientResult]
+  if (!isClientOnly) {
+    results.push(await build(configs.server))
+  }
 
   if (isDetail) {
     results.forEach(async result => {
@@ -72,8 +97,22 @@ async function buildApp() {
 }
 
 async function dev() {
-  const clientContext = await context(configs.client)
-  await clientContext.watch()
+  const clientContext = await context({
+    ...configs.client,
+    plugins: [
+      {
+        name: 'update-manifest',
+        setup: build =>
+          build.onEnd(async result => {
+            if (result.errors.length === 0) {
+              const assets = extractAssetNames(result.metafile)
+              await generateManifestAndHTML(assets)
+              console.log('✅ Client rebuilt')
+            }
+          }),
+      },
+    ],
+  })
 
   const serverContext = await context({
     ...configs.server,
@@ -90,20 +129,9 @@ async function dev() {
       },
     ],
   })
-  await serverContext.watch()
 
+  await Promise.all([clientContext.watch(), serverContext.watch()])
   startServer()
-}
-
-async function copyAssets() {
-  await cp('src/assets', 'dist/assets', { recursive: true })
-  console.log('📄 Assets copied')
-}
-
-async function generateStaticHTML() {
-  const html = createHTML('')
-  await writeFile('dist/index.html', html)
-  console.log('📄 Static HTML generated')
 }
 
 function startServer() {
