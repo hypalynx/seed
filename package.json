@@ -28,6 +28,7 @@
     "@playwright/test": "^1.48.2",
     "esbuild": "^0.25.8",
     "eslint": "^9.32.0",
+    "eslint-plugin-react": "^7.37.5",
     "prettier": "^3.6.2"
   },
   "engines": {

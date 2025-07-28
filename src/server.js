@@ -14,7 +14,7 @@ console.log(`environment: ${config['environment']}`)
 function loadAssetManifest() {
   try {
     return JSON.parse(readFileSync('./dist/assets-manifest.json', 'utf8'))
-  } catch (error) {
+  } catch {
     console.warn('⚠️  No asset manifest found, using original filenames')
     return {}
   }

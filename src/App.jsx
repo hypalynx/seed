@@ -1,4 +1,4 @@
-import { Link, Route, Router, Switch, useLocation } from 'wouter-preact'
+import { Route, Router, Switch, useLocation } from 'wouter-preact'
 import { Counter } from './page/Counter'
 import { Index } from './page/Index'
 import { DesignPreview } from './page/DesignPreview'

@@ -1,56 +1,63 @@
 import js from '@eslint/js'
+import react from 'eslint-plugin-react'
 
 export default [
-  // Global ignores
   {
-    ignores: ['node_modules/**', 'dist/**', 'build/**', 'public/**', 'coverage/**', '*.min.js'],
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      'build/**',
+      'public/**',
+      'coverage/**',
+      '*.min.js',
+    ],
   },
 
-  // Base configuration for all files
+  // Base config for all files
   {
+    ...js.configs.recommended,
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      globals: {
-        console: 'readonly',
-        process: 'readonly',
-      },
     },
     rules: {
-      ...js.configs.recommended.rules,
       'no-unused-vars': 'warn',
       'no-console': 'warn',
     },
   },
 
-  // Frontend specific (JSX files)
+  // JSX files
   {
     files: ['src/**/*.{js,jsx}'],
+    plugins: {
+      react,
+    },
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
       parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
+        ecmaFeatures: { jsx: true },
       },
       globals: {
-        window: 'readonly',
-        document: 'readonly',
-        navigator: 'readonly',
-        fetch: 'readonly',
+        // Browser globals are auto-detected in modern environments
         h: 'readonly', // Preact's createElement
-        Fragment: 'readonly',
+        Fragment: 'readonly', // Preact Fragment
+      },
+    },
+    settings: {
+      react: {
+        pragma: 'h',
+        version: 'detect',
       },
     },
     rules: {
       'no-console': 'off',
+      'react/jsx-uses-react': 'error',
+      'react/jsx-uses-vars': 'error',
     },
   },
 
-  // Backend specific
+  // Build scripts and Node.js files
   {
-    files: ['server.js', 'src/server.js'],
+    files: ['scripts/**/*.js', 'server.js', '*.config.js'],
     languageOptions: {
       globals: {
         __dirname: 'readonly',
@@ -60,7 +67,7 @@ export default [
       },
     },
     rules: {
-      'no-console': 'off', // Allow console in backend
+      'no-console': 'off', // Console is expected in build scripts
     },
   },
 ]
