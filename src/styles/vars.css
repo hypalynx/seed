@@ -14,41 +14,71 @@
   --10: 2.5rem; /* 40px */
   --12: 3rem; /* 48px */
   --16: 4rem; /* 64px */
+  --3xl: 48rem; /* 768px */
+  --4xl: 56rem; /* 896px */
+  --5xl: 64rem; /* 1024px */
+  --6xl: 72rem; /* 1152px */
   --7xl: 80rem; /* 1280px */
 
-  /* Light mode - Green/Teal theme with high contrast */
-  --bg: hsl(0, 0%, 100%); /* Pure white */
-  --bg-secondary: hsl(150, 20%, 97%); /* Very light green-gray */
-  --text: hsl(0, 0%, 9%); /* Almost black for max contrast */
-  --text-muted: hsl(0, 0%, 45%); /* Medium gray */
-  --border: hsl(150, 15%, 85%); /* Light green-gray border */
-
-  --primary: hsl(170, 76%, 32%); /* Deep teal-green */
-  --primary-foreground: hsl(0, 0%, 100%); /* White text */
-  --secondary: hsl(0, 0%, 20%); /* Dark gray */
-  --secondary-foreground: hsl(0, 0%, 100%); /* White text */
-  --accent: hsl(162, 88%, 26%); /* Rich green */
-  --accent-foreground: hsl(0, 0%, 100%); /* White text */
-  --success: hsl(145, 85%, 25%); /* Forest green */
-  --success-foreground: hsl(0, 0%, 100%); /* White text */
-  --warning: hsl(38, 92%, 45%); /* Amber (darker for contrast) */
-  --warning-foreground: hsl(0, 0%, 9%); /* Dark text */
-  --destructive: hsl(0, 72%, 45%); /* Red (darker for contrast) */
-  --destructive-foreground: hsl(0, 0%, 100%); /* White text */
+  /* Base colors */
+  --base-100: oklch(100% 0 0);
+  --base-200: oklch(98% 0 0);
+  --base-300: oklch(95% 0 0);
+  --base-content: oklch(21% 0.006 285.885);
+  --primary: oklch(45% 0.24 277.023);
+  --primary-content: oklch(93% 0.034 272.788);
+  --secondary: oklch(65% 0.241 354.308);
+  --secondary-content: oklch(94% 0.028 342.258);
+  --accent: oklch(77% 0.152 181.912);
+  --accent-content: oklch(38% 0.063 188.416);
+  --neutral: oklch(14% 0.005 285.823);
+  --neutral-content: oklch(92% 0.004 286.32);
+  --info: oklch(74% 0.16 232.661);
+  --info-content: oklch(29% 0.066 243.157);
+  --success: oklch(76% 0.177 163.223);
+  --success-content: oklch(37% 0.077 168.94);
+  --warning: oklch(82% 0.189 84.429);
+  --warning-content: oklch(41% 0.112 45.904);
+  --destructive: oklch(71% 0.194 13.428);
+  --destructive-content: oklch(27% 0.105 12.094);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
 }
 
 /* Dark mode - Green/Teal for dark backgrounds */
-[data-theme="dark"] {
-  --bg: hsl(150, 15%, 8%); /* Very dark green-gray */
-  --bg-secondary: hsl(150, 12%, 12%); /* Slightly lighter dark green */
-  --text: hsl(0, 0%, 95%); /* Off-white */
-  --text-muted: hsl(0, 0%, 65%); /* Light gray */
-  --border: hsl(150, 15%, 18%); /* Dark green-gray border */
-
-  --primary: hsl(170, 76%, 42%); /* Brighter teal for dark mode */
-  --secondary: hsl(150, 10%, 22%); /* Dark green-gray */
-  --accent: hsl(162, 88%, 36%); /* Brighter green */
-  --success: hsl(145, 85%, 35%); /* Brighter forest green */
-  --warning: hsl(38, 92%, 55%); /* Brighter amber */
-  --destructive: hsl(0, 72%, 55%); /* Brighter red */
+[data-theme='dark'] {
+  --base-100: oklch(20.768% 0.039 265.754);
+  --base-200: oklch(19.314% 0.037 265.754);
+  --base-300: oklch(17.86% 0.034 265.754);
+  --base-content: oklch(84.153% 0.007 265.754);
+  --primary: oklch(75.351% 0.138 232.661);
+  --primary-content: oklch(15.07% 0.027 232.661);
+  --secondary: oklch(68.011% 0.158 276.934);
+  --secondary-content: oklch(13.602% 0.031 276.934);
+  --accent: oklch(72.36% 0.176 350.048);
+  --accent-content: oklch(14.472% 0.035 350.048);
+  --neutral: oklch(27.949% 0.036 260.03);
+  --neutral-content: oklch(85.589% 0.007 260.03);
+  --info: oklch(68.455% 0.148 237.251);
+  --info-content: oklch(0% 0 0);
+  --success: oklch(78.452% 0.132 181.911);
+  --success-content: oklch(15.69% 0.026 181.911);
+  --warning: oklch(83.242% 0.139 82.95);
+  --warning-content: oklch(16.648% 0.027 82.95);
+  --destructive: oklch(71.785% 0.17 13.118);
+  --destructive-content: oklch(14.357% 0.034 13.118);
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
 }

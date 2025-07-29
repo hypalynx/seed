@@ -14,6 +14,12 @@
 - node-cron
 - auth n auth (guest/user/admin)
 
+### Components
+
+- dropdown menu
+- mobile slide in menu
+- progress bar
+
 A starter template for building web services, prioritising speed,
 simplicity and maintenance cost.
 

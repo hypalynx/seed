@@ -12,14 +12,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  border-radius: var(--radius);
+  padding: var(--4) var(--8);
+  font-weight: 700;
+  line-height: var(--5);
+  height: fit-content;
+  border-radius: var(--radius-sm);
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  text-transform: capitalize;
   text-decoration: none;
 }
 
@@ -32,16 +33,20 @@
 
 .btn-primary {
   background: var(--primary);
-  color: var(--primary-foreground);
+  color: var(--primary-content);
 }
 .btn-primary:hover {
   filter: brightness(1.1);
   transform: translateY(-1px);
 }
 
+.btn-neutral {
+  border: 1px solid var(--neutral-content);
+}
+
 .btn-secondary {
   background: var(--secondary);
-  color: var(--secondary-foreground);
+  color: var(--secondary-content);
 }
 .btn-secondary:hover {
   filter: brightness(1.1);
@@ -50,7 +55,7 @@
 
 .btn-accent {
   background: var(--accent);
-  color: var(--accent-foreground);
+  color: var(--accent-content);
 }
 .btn-accent:hover {
   filter: brightness(1.1);
@@ -59,7 +64,7 @@
 
 .btn-success {
   background: var(--success);
-  color: var(--success-foreground);
+  color: var(--success-content);
 }
 .btn-success:hover {
   filter: brightness(1.1);
@@ -68,7 +73,7 @@
 
 .btn-warning {
   background: var(--warning);
-  color: var(--warning-foreground);
+  color: var(--warning-content);
 }
 .btn-warning:hover {
   filter: brightness(1.1);
@@ -77,21 +82,11 @@
 
 .btn-destructive {
   background: var(--destructive);
-  color: var(--destructive-foreground);
+  color: var(--destructive-content);
 }
 .btn-destructive:hover {
   filter: brightness(1.1);
   transform: translateY(-1px);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-}
-.btn-outline:hover {
-  background: var(--primary);
-  color: var(--primary-foreground);
 }
 
 .btn-ghost {
@@ -211,8 +206,14 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Toggle Switch CSS */

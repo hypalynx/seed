@@ -1,11 +1,31 @@
-.gap-4 { display: flex; gap: var(--4); }
-.gap-8 { display: flex; gap: var(--8); }
+.gap-4 {
+  display: flex;
+  gap: var(--4);
+}
+.gap-8 {
+  display: flex;
+  gap: var(--8);
+}
 
-.group-gap-4 * + * { margin-top: var(--4); }
-.group-gap-8 * + * { margin-top: var(--8); }
+/* doesn't work if you want hori/vert switch on desktop/mobile
+.group-gap-4 * + * {
+  margin-top: var(--4);
+}
+.group-gap-8 * + * {
+  margin-top: var(--8);
+}
+*/
+
+.group-gap-4 > * {
+  margin-top: var(--4);
+}
+
+.group-gap-8 > * {
+  margin-top: var(--8);
+}
 
 .flex-col {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .grid {
@@ -31,6 +51,8 @@
 }
 
 .max-w-container {
+  width: 100%;
+  padding: 0 var(--4);
   max-width: var(--7xl);
 }
 
@@ -60,4 +82,3 @@
 .border-primary {
   border-color: var(--border);
 }
-

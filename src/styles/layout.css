@@ -1,0 +1,48 @@
+.nav {
+  height: var(--16);
+  padding: 0 var(--4);
+  color: var(--base-content);
+  background-color: var(--base-300);
+  div {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    + div {
+      justify-content: flex-end;
+      gap: var(--8);
+    }
+  }
+  a,
+  a:visited {
+    color: var(--base-content);
+    text-decoration: none;
+  }
+}
+
+/* perhaps these should be the same?
+/* more for containing atomic elements e.g list of buttons */
+.group-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--8);
+}
+
+/* more for big layout components */
+.group-responsive-row {
+  display: flex;
+  gap: var(--8);
+  > :first-child {
+    min-width: 40%;
+  }
+}
+
+@media (max-width: 64rem) {
+  .group-responsive-row,
+  .group-row {
+    flex-direction: column;
+  }
+}

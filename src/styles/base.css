@@ -1,6 +1,6 @@
 body {
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--base-100);
+  color: var(--base-content);
   font-family: 'Manrope', sans-serif;
   font-size: 120%;
 }
@@ -11,23 +11,6 @@ body {
   gap: var(--8);
 }
 
-.nav {
-  height: var(--16);
-  padding: 0 var(--4);
-  color: var(--secondary-foreground);
-  background-color: var(--secondary);
-  > div {
-    margin: 0 auto;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  a,
-  a:visited {
-    color: var(--secondary-foreground);
-    text-decoration: none;
-  }
+h4 {
+  text-transform: uppercase;
 }
-

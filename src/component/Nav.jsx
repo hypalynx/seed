@@ -11,10 +11,10 @@ export const Nav = () => {
   }
 
   return (
-    <nav class='nav px-4 h-20 bg-teal-400 font-bold text-lg flex items-center justify-between'>
+    <nav class='nav'>
       <div class='max-w-container'>
         <div>[] Stack</div>
-        <div class='gap-4'>
+        <div>
           <Link href='/counter'>Counter</Link>
           <Link href='/design'>Design</Link>
           <Link href='/'>About</Link>

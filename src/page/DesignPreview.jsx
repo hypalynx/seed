@@ -2,202 +2,190 @@ import { ToggleSwitch } from '../component/ToggleSwitch'
 
 export const DesignPreview = () => {
   return (
-    <div class='group-gap-8'>
-      {/* Header */}
-      <header class=''>
-        <div class=''>
-          <h1 class=''>Design System Preview</h1>
-        </div>
-      </header>
+    <div class='max-w-container'>
+      {/* header */}
+      <h4 class=''>design system preview</h4>
 
-      <main>
-        <section>
-          <h2>Toggle Switch</h2>
+      <main class='group-gap-8'>
+        <section class='group-responsive-row'>
           <div>
+            <h2>Inputs</h2>
+            <p>Form elements</p>
+          </div>
+          <div class='group-responsive-row'>
             <ToggleSwitch />
+            <input type='text' placeholder='First Name' />
           </div>
         </section>
 
-        {/* Buttons Section */}
-        <section>
-          <h2 class=''>Buttons</h2>
+        {/* buttons section */}
+        <section class='group-responsive-row'>
+          <div>
+            <h2 class=''>buttons</h2>
+            <p>some buttons.. yo</p>
+          </div>
           <div class=''>
-            {/* Primary Buttons */}
+            {/* primary buttons */}
             <div class='group-gap-4'>
-              <h3 class=''>Primary Variants</h3>
-              <div class=''>
-                <button class=''>Primary</button>
-                <button class=''>Secondary</button>
-                <button class=''>Accent</button>
-              </div>
-            </div>
-
-            {/* Status Buttons */}
-            <div class=''>
-              <h3 class=''>Status Variants</h3>
-              <div class=''>
-                <button class=''>Success</button>
-                <button class=''>Warning</button>
-                <button class=''>Destructive</button>
-              </div>
-            </div>
-
-            {/* Style Variants */}
-            <div class=''>
-              <h3 class=''>Style Variants</h3>
-              <div class=''>
-                <button class=''>Outline</button>
-                <button class=''>Ghost</button>
-                <button class='' disabled>
-                  Disabled
+              <div class='group-row'>
+                <button class='btn btn-primary'>Primary</button>
+                <button class='btn btn-neutral'>neutral</button>
+                <button class='btn btn-secondary'>secondary</button>
+                <button class='btn btn-accent'>accent</button>
+                <button class='btn btn-success'>success</button>
+                <button class='btn btn-warning'>warning</button>
+                <button class='btn btn-destructive'>destructive</button>
+                <button class='btn btn-ghost'>ghost</button>
+                <button class='btn btn-disabled' disabled>
+                  disabled
                 </button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Cards Section */}
+        {/* cards section */}
         <section>
-          <h2 class=''>Cards</h2>
+          <h2 class=''>cards</h2>
           <div class=''>
             <div class=''>
               <div class=''>
-                <h3 class=''>Simple Card</h3>
-                <p class=''>A basic card with title and description</p>
+                <h3 class=''>simple card</h3>
+                <p class=''>a basic card with title and description</p>
               </div>
               <p class=''>
-                Some card content goes here. This demonstrates how text looks
+                some card content goes here. this demonstrates how text looks
                 within a card component.
               </p>
             </div>
 
             <div class=''>
               <div class=''>
-                <h3 class=''>Interactive Card</h3>
-                <p class=''>Card with actions</p>
+                <h3 class=''>interactive card</h3>
+                <p class=''>card with actions</p>
               </div>
               <div class=''>
-                <p class=''>This card has interactive elements.</p>
+                <p class=''>this card has interactive elements.</p>
                 <div class=''>
-                  <button class=''>Action</button>
-                  <button class=''>Cancel</button>
+                  <button class=''>action</button>
+                  <button class=''>cancel</button>
                 </div>
               </div>
             </div>
 
             <div class=''>
               <div class=''>
-                <h3 class=''>Status Card</h3>
-                <p class=''>Card with status badges</p>
+                <h3 class=''>status card</h3>
+                <p class=''>card with status badges</p>
               </div>
               <div class=''>
                 <div class=''>
-                  <span class=''>Active</span>
-                  <span class=''>Featured</span>
+                  <span class=''>active</span>
+                  <span class=''>featured</span>
                 </div>
-                <p class=''>Status indicators help communicate state.</p>
+                <p class=''>status indicators help communicate state.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Forms Section */}
+        {/* forms section */}
         <section>
-          <h2 class=''>Form Elements</h2>
+          <h2 class=''>form elements</h2>
           <div class=''>
             <div class=''>
-              <h3 class=''>Sample Form</h3>
-              <p class=''>Form inputs and controls</p>
+              <h3 class=''>sample form</h3>
+              <p class=''>form inputs and controls</p>
             </div>
             <form class=''>
               <div>
-                <label class=''>Email</label>
-                <input type='email' class='' placeholder='Enter your email' />
+                <label class=''>email</label>
+                <input type='email' class='' placeholder='enter your email' />
               </div>
 
               <div>
-                <label class=''>Message</label>
+                <label class=''>message</label>
                 <textarea
                   class=''
                   rows='3'
-                  placeholder='Your message...'
+                  placeholder='your message...'
                 ></textarea>
               </div>
 
               <div class=''>
                 <button type='submit' class=''>
-                  Submit
+                  submit
                 </button>
                 <button type='button' class=''>
-                  Draft
+                  draft
                 </button>
               </div>
             </form>
           </div>
         </section>
 
-        {/* Badges Section */}
+        {/* badges section */}
         <section>
-          <h2 class=''>Badges</h2>
+          <h2 class=''>badges</h2>
           <div class=''>
             <div>
-              <h3 class=''>Status Badges</h3>
+              <h3 class=''>status badges</h3>
               <div class=''>
-                <span class=''>Primary</span>
-                <span class=''>Secondary</span>
-                <span class=''>Success</span>
-                <span class=''>Warning</span>
-                <span class=''>Error</span>
+                <span class=''>primary</span>
+                <span class=''>secondary</span>
+                <span class=''>success</span>
+                <span class=''>warning</span>
+                <span class=''>error</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Typography Section */}
+        {/* typography section */}
         <section>
-          <h2 class=''>Typography</h2>
+          <h2 class=''>typography</h2>
           <div class=''>
-            <h1 class=''>Heading 1</h1>
-            <h2 class=''>Heading 2</h2>
-            <h3 class=''>Heading 3</h3>
+            <h1 class=''>heading 1</h1>
+            <h2 class=''>heading 2</h2>
+            <h3 class=''>heading 3</h3>
             <p class=''>
-              This is regular body text. It should be easily readable with good
+              this is regular body text. it should be easily readable with good
               contrast against the background in both light and dark modes.
             </p>
             <p class=''>
-              This is muted text, used for less important information like
+              this is muted text, used for less important information like
               descriptions and supplementary content.
             </p>
           </div>
         </section>
 
-        {/* Color Palette */}
+        {/* color palette */}
         <section>
-          <h2 class=''>Color Palette</h2>
+          <h2 class=''>color palette</h2>
           <div class=''>
             <div class=''>
               <div class='' style={{ background: 'var(--primary)' }}></div>
-              <p class=''>Primary</p>
+              <p class=''>primary</p>
             </div>
             <div class=''>
               <div class='' style={{ background: 'var(--secondary)' }}></div>
-              <p class=''>Secondary</p>
+              <p class=''>secondary</p>
             </div>
             <div class=''>
               <div class='' style={{ background: 'var(--accent)' }}></div>
-              <p class=''>Accent</p>
+              <p class=''>accent</p>
             </div>
             <div class=''>
               <div class='' style={{ background: 'var(--success)' }}></div>
-              <p class=''>Success</p>
+              <p class=''>success</p>
             </div>
             <div class=''>
               <div class='' style={{ background: 'var(--warning)' }}></div>
-              <p class=''>Warning</p>
+              <p class=''>warning</p>
             </div>
             <div class=''>
               <div class='' style={{ background: 'var(--destructive)' }}></div>
-              <p class=''>Destructive</p>
+              <p class=''>destructive</p>
             </div>
           </div>
         </section>
