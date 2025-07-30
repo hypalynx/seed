@@ -1,6 +1,7 @@
 import { ToggleSwitch } from '../component/ToggleSwitch'
 import { Stepper } from '../component/Stepper'
-import { Info } from 'lucide-preact'
+import { Accordian } from '../component/Accordian'
+import { Info, TriangleAlert, CircleX, CircleCheckBig } from 'lucide-preact'
 
 export const DesignPreview = () => {
   return (
@@ -12,14 +13,40 @@ export const DesignPreview = () => {
         <section class='group-responsive-row'>
           <div>
             <h2>Notifications</h2>
+            <p>
+              Use these sparing, to notify users about important information.
+            </p>
           </div>
-          <div>
+          <div class='group-col'>
             <div class='notification info-notification'>
               <Info />
               <div>These design elements are ready to use!</div>
               <p>
                 We use plain CSS and often style the HTML elements directly
-                where we think there won't be conflict.
+                where we think there won't be conflict. You can change the
+                colors, borders, spacing and more with css vars!
+              </p>
+            </div>
+            <div class='notification warning-notification'>
+              <TriangleAlert />
+              <div>Make sure to read the descriptions</div>
+              <p>
+                It's just an important to know how to use these inputs as it is
+                to have them available to use as a design system.
+              </p>
+            </div>
+            <div class='notification destructive-notification'>
+              <CircleX />
+              <div>Don't eat yellow snow</div>
+              <p>Just.. just don't do it okay?</p>
+            </div>
+            <div class='notification success-notification'>
+              <CircleCheckBig />
+              <div>Remember to have fun!</div>
+              <p>
+                We use plain CSS and often style the HTML elements directly
+                where we think there won't be conflict. You can change the
+                colors, borders, spacing and more with css vars!
               </p>
             </div>
           </div>
@@ -27,7 +54,10 @@ export const DesignPreview = () => {
         <section class='group-responsive-row'>
           <div>
             <h2>Inputs</h2>
-            <p>Form elements</p>
+            <p>
+              Keep these inputs close to each other to increase a users ability
+              to interact with them.
+            </p>
           </div>
           <div class='group-col'>
             <ToggleSwitch />
@@ -49,6 +79,40 @@ export const DesignPreview = () => {
           </div>
         </section>
 
+        <section class='group-responsive-row'>
+          <div>
+            <h2>Accordian</h2>
+            <p>
+              Pretty normal way to condense large amounts of information,
+              classically in FAQ sections.
+            </p>
+          </div>
+          <div class='group-col'>
+            <Accordian title='what is this?'>
+              I am an accordian, you can read this text because you clicked on
+              me!
+            </Accordian>
+            <Accordian title='what is this?'>
+              I am an accordian, you can read this text because you clicked on
+              me!
+            </Accordian>
+          </div>
+        </section>
+
+        <section class='group-responsive-row'>
+          <div>
+            <h2>Links</h2>
+            <p>
+              Link text should be explicit about where it will take the user.
+            </p>
+          </div>
+          <div class='group-col'>
+            <p>
+              Oh hey, look <a href='#'>a link</a>
+            </p>
+          </div>
+        </section>
+
         {/* buttons section */}
         <section class='group-responsive-row'>
           <div>
@@ -58,6 +122,7 @@ export const DesignPreview = () => {
           <div class='group-row'>
             <button class='btn btn-primary'>Primary</button>
             <button class='btn btn-neutral'>neutral</button>
+            <button class='btn btn-outline'>outline</button>
             <button class='btn btn-secondary'>secondary</button>
             <button class='btn btn-accent'>accent</button>
             <button class='btn btn-success'>success</button>

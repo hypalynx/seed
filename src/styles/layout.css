@@ -45,7 +45,7 @@
   flex-wrap: wrap;
   gap: var(--8);
   > :first-child {
-    min-width: 40%;
+    width: 40%;
   }
 }
 
@@ -53,5 +53,9 @@
   .group-responsive-row,
   .group-row {
     flex-direction: column;
+  }
+
+  .group-responsive-row > :first-child {
+    width: 100%;
   }
 }

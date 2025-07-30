@@ -31,77 +31,60 @@
   }
 }
 
-.btn:focus {
-  outline: none;
-  box-shadow:
-    0 0 0 2px var(--bg),
-    0 0 0 4px var(--primary);
+.btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+.btn:active {
+  filter: brightness(0.9);
+  transform: translateY(0px);
 }
 
 .btn-primary {
   background: var(--primary);
   color: var(--primary-content);
 }
-.btn-primary:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-}
 
 .btn-neutral {
-  border: 1px solid var(--neutral-content);
+  background: var(--neutral);
+  color: var(--neutral-content);
+  border: 1px solid var(--base-400);
+}
+
+.btn-outline {
+  background: none;
+  color: var(--base-content);
+  border: 1px solid var(--base-400);
 }
 
 .btn-secondary {
   background: var(--secondary);
   color: var(--secondary-content);
 }
-.btn-secondary:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-}
 
 .btn-accent {
   background: var(--accent);
   color: var(--accent-content);
-}
-.btn-accent:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
 }
 
 .btn-success {
   background: var(--success);
   color: var(--success-content);
 }
-.btn-success:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-}
 
 .btn-warning {
   background: var(--warning);
   color: var(--warning-content);
-}
-.btn-warning:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
 }
 
 .btn-destructive {
   background: var(--destructive);
   color: var(--destructive-content);
 }
-.btn-destructive:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-}
 
 .btn-ghost {
   background: transparent;
   color: var(--text);
-}
-.btn-ghost:hover {
-  background: var(--bg-secondary);
 }
 
 .btn-disabled:hover {
@@ -284,21 +267,52 @@
 }
 
 .notification {
-  border: 1px solid var(--primary);
-  border-left: var(--1) solid var(--primary);
-  background: var(--primary-100);
+  border: 1px solid var(--info);
+  border-left: var(--1) solid var(--info);
+  background: var(--info-100);
+  color: var(--info-content);
   border-radius: var(--radius);
   padding: var(--4);
   padding-left: var(--12);
   position: relative;
   svg {
-    stroke: var(--primary);
+    stroke: var(--info);
     position: absolute;
     left: var(--4);
   }
   div:first-of-type {
     font-weight: 600;
     margin-bottom: var(--2);
+  }
+}
+
+.warning-notification {
+  border: 1px solid var(--warning);
+  border-left: var(--1) solid var(--warning);
+  background: var(--warning-100);
+  color: var(--warning-content);
+  svg {
+    stroke: var(--warning);
+  }
+}
+
+.destructive-notification {
+  border: 1px solid var(--destructive);
+  border-left: var(--1) solid var(--destructive);
+  background: var(--destructive-100);
+  color: var(--destructive-content);
+  svg {
+    stroke: var(--destructive);
+  }
+}
+
+.success-notification {
+  border: 1px solid var(--success);
+  border-left: var(--1) solid var(--success);
+  background: var(--success-100);
+  color: var(--success-content);
+  svg {
+    stroke: var(--success);
   }
 }
 
@@ -343,4 +357,22 @@
     border-radius: 0 var(--2) var(--2) 0;
   }
   display: flex;
+}
+
+.accordian {
+  border-top: 1px solid var(--base-400);
+  svg {
+    transition: all 0.3s ease;
+  }
+  div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    align-items: center;
+    padding: var(--2) 0;
+  }
+  .accordian-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
 }

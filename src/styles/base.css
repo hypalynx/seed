@@ -21,37 +21,43 @@ h6 {
 }
 
 h1 {
-  font-size: var(--24);
+  font-size: var(--10);
+  line-height: var(--12);
 }
 
 h2 {
-  font-size: var(--16);
+  font-size: var(--8);
+  line-height: var(--10);
 }
 
 h3 {
-  font-size: var(--16);
+  font-size: var(--6);
+  line-height: var(--8);
 }
 
 h4 {
-  font-size: var(--12);
-  color: var(--base-500);
-  text-transform: uppercase;
+  font-size: var(--5);
+  line-height: var(--7);
 }
 
 h5 {
-  font-size: var(--8);
+  font-size: var(--4);
+  line-height: var(--6);
   color: var(--base-500);
-  text-transform: uppercase;
 }
 
 h6 {
-  font-size: var(--6);
+  font-size: var(--3-5);
+  line-height: var(--5);
   color: var(--base-500);
-  text-transform: uppercase;
 }
 
 p {
   max-width: 35rem;
+}
+
+a {
+  color: var(--primary);
 }
 
 input,
