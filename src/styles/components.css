@@ -13,7 +13,8 @@
   align-items: center;
   justify-content: center;
   padding: var(--4) var(--8);
-  font-weight: 700;
+  font-weight: 600;
+  font-size: var(--5);
   line-height: var(--5);
   height: fit-content;
   border-radius: var(--radius-sm);
@@ -280,4 +281,66 @@
 
 .toggle-switch.checked .toggle-thumb {
   transform: translateX(1.25rem);
+}
+
+.notification {
+  border: 1px solid var(--primary);
+  border-left: var(--1) solid var(--primary);
+  background: var(--primary-100);
+  border-radius: var(--radius);
+  padding: var(--4);
+  padding-left: var(--12);
+  position: relative;
+  svg {
+    stroke: var(--primary);
+    position: absolute;
+    left: var(--4);
+  }
+  div:first-of-type {
+    font-weight: 600;
+    margin-bottom: var(--2);
+  }
+}
+
+.stepper {
+  :first-child,
+  :last-child {
+    font-size: var(--6);
+    cursor: pointer;
+    padding: var(--4);
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+  }
+  :first-child:hover,
+  :last-child:hover {
+    background-color: var(--base-200);
+  }
+  input {
+    height: 100%;
+    width: var(--16);
+    text-align: center;
+    border-radius: 0;
+    border: var(--border) solid var(--base-400);
+  }
+
+  /* Removing default up/down arrows */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  :first-child {
+    border: 1px solid var(--base-400);
+    border-right: 0;
+    border-radius: var(--2) 0 0 var(--2);
+  }
+  :last-child {
+    border: 1px solid var(--base-400);
+    border-left: 0;
+    border-radius: 0 var(--2) var(--2) 0;
+  }
+  display: flex;
 }

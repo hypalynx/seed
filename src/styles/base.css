@@ -21,31 +21,31 @@ h6 {
 }
 
 h1 {
-  font-size: var(--16);
+  font-size: var(--24);
 }
 
 h2 {
-  font-size: var(--8);
+  font-size: var(--16);
 }
 
 h3 {
-  font-size: var(--6);
+  font-size: var(--16);
 }
 
 h4 {
-  font-size: var(--4);
+  font-size: var(--12);
   color: var(--base-500);
   text-transform: uppercase;
 }
 
 h5 {
-  font-size: var(--3);
+  font-size: var(--8);
   color: var(--base-500);
   text-transform: uppercase;
 }
 
 h6 {
-  font-size: var(--2);
+  font-size: var(--6);
   color: var(--base-500);
   text-transform: uppercase;
 }

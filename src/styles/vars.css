@@ -14,6 +14,7 @@
   --10: 2.5rem; /* 40px */
   --12: 3rem; /* 48px */
   --16: 4rem; /* 64px */
+  --24: 6rem; /* 96px */
   --32: 8rem; /* 128px */
   --64: 16rem; /* 256px */
   --3xl: 48rem; /* 768px */
@@ -32,6 +33,7 @@
   --base-500: oklch(65% 0 0);
   --base-600: oklch(45% 0 0);
   --base-content: oklch(21% 0.006 285.885);
+  --primary-100: oklch(100% 0.09 287.023);
   --primary: oklch(45% 0.24 277.023);
   --primary-content: oklch(93% 0.034 272.788);
   --secondary: oklch(65% 0.241 354.308);
@@ -67,6 +69,7 @@
   --base-500: oklch(45.86% 0.034 265.754);
   --base-600: oklch(65.86% 0.034 265.754);
   --base-content: oklch(84.153% 0.007 265.754);
+  --primary-100: oklch(15% 0.138 232.661);
   --primary: oklch(75.351% 0.138 232.661);
   --primary-content: oklch(15.07% 0.027 232.661);
   --secondary: oklch(68.011% 0.158 276.934);

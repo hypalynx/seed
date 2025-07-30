@@ -1,4 +1,6 @@
 import { ToggleSwitch } from '../component/ToggleSwitch'
+import { Stepper } from '../component/Stepper'
+import { Info } from 'lucide-preact'
 
 export const DesignPreview = () => {
   return (
@@ -9,11 +11,27 @@ export const DesignPreview = () => {
       <main class='group-gap-8'>
         <section class='group-responsive-row'>
           <div>
+            <h2>Notifications</h2>
+          </div>
+          <div>
+            <div class='notification info-notification'>
+              <Info />
+              <div>These design elements are ready to use!</div>
+              <p>
+                We use plain CSS and often style the HTML elements directly
+                where we think there won't be conflict.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class='group-responsive-row'>
+          <div>
             <h2>Inputs</h2>
             <p>Form elements</p>
           </div>
           <div class='group-col'>
             <ToggleSwitch />
+            <Stepper initialValue={3} />
             <input type='text' placeholder='First Name' />
             <input type='number' placeholder='0' />
             <input type='password' />
