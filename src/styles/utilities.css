@@ -1,3 +1,7 @@
+.gap-2 {
+  display: flex;
+  gap: var(--2);
+}
 .gap-4 {
   display: flex;
   gap: var(--4);
@@ -77,8 +81,16 @@
   color: var(--text);
 }
 .text-muted {
-  color: var(--text-muted);
+  color: var(--base-500);
 }
 .border-primary {
   border-color: var(--border);
+}
+
+.h-8 {
+  height: var(--8);
+}
+
+.w-32 {
+  width: var(--32);
 }

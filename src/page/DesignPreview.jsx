@@ -12,76 +12,84 @@ export const DesignPreview = () => {
             <h2>Inputs</h2>
             <p>Form elements</p>
           </div>
-          <div class='group-responsive-row'>
+          <div class='group-col'>
             <ToggleSwitch />
             <input type='text' placeholder='First Name' />
+            <input type='number' placeholder='0' />
+            <input type='password' />
+            <input type='checkbox' />
+            <input type='radio' />
+            <input type='color' value='#002288' />
+            <input type='date' /> {/* 'time' and 'datetime-local' */}
+            <input type='email' />
+            <input type='file' />
+            <input type='image' />
+            <input type='month' />
+            <input type='range' />
+            <input type='search' />
+            <input type='tel' />
           </div>
         </section>
 
         {/* buttons section */}
         <section class='group-responsive-row'>
           <div>
-            <h2 class=''>buttons</h2>
+            <h2 class=''>Buttons</h2>
             <p>some buttons.. yo</p>
           </div>
-          <div class=''>
-            {/* primary buttons */}
-            <div class='group-gap-4'>
-              <div class='group-row'>
-                <button class='btn btn-primary'>Primary</button>
-                <button class='btn btn-neutral'>neutral</button>
-                <button class='btn btn-secondary'>secondary</button>
-                <button class='btn btn-accent'>accent</button>
-                <button class='btn btn-success'>success</button>
-                <button class='btn btn-warning'>warning</button>
-                <button class='btn btn-destructive'>destructive</button>
-                <button class='btn btn-ghost'>ghost</button>
-                <button class='btn btn-disabled' disabled>
-                  disabled
-                </button>
-              </div>
-            </div>
+          <div class='group-row'>
+            <button class='btn btn-primary'>Primary</button>
+            <button class='btn btn-neutral'>neutral</button>
+            <button class='btn btn-secondary'>secondary</button>
+            <button class='btn btn-accent'>accent</button>
+            <button class='btn btn-success'>success</button>
+            <button class='btn btn-warning'>warning</button>
+            <button class='btn btn-destructive'>destructive</button>
+            <button class='btn btn-ghost'>ghost</button>
+            <button class='btn btn-disabled' disabled>
+              disabled
+            </button>
           </div>
         </section>
 
         {/* cards section */}
         <section>
-          <h2 class=''>cards</h2>
-          <div class=''>
-            <div class=''>
-              <div class=''>
-                <h3 class=''>simple card</h3>
+          <h2 class=''>Cards</h2>
+          <div class='group-row'>
+            <div class='card'>
+              <div class='card-header'>
+                <h3 class='card-title'>simple card</h3>
                 <p class=''>a basic card with title and description</p>
               </div>
-              <p class=''>
+              <p class='card-description'>
                 some card content goes here. this demonstrates how text looks
                 within a card component.
               </p>
             </div>
 
-            <div class=''>
-              <div class=''>
-                <h3 class=''>interactive card</h3>
+            <div class='card'>
+              <div class='card-header'>
+                <h3 class='card-title'>interactive card</h3>
                 <p class=''>card with actions</p>
               </div>
-              <div class=''>
+              <div class='card-description'>
                 <p class=''>this card has interactive elements.</p>
-                <div class=''>
-                  <button class=''>action</button>
-                  <button class=''>cancel</button>
+                <div class='gap-4'>
+                  <button class='btn btn-primary'>action</button>
+                  <button class='btn btn-neutral'>cancel</button>
                 </div>
               </div>
             </div>
 
-            <div class=''>
-              <div class=''>
-                <h3 class=''>status card</h3>
+            <div class='card'>
+              <div class='card-header'>
+                <h3 class='card-title'>status card</h3>
                 <p class=''>card with status badges</p>
               </div>
-              <div class=''>
-                <div class=''>
-                  <span class=''>active</span>
-                  <span class=''>featured</span>
+              <div class='card-description'>
+                <div class='gap-2'>
+                  <span class='badge badge-primary'>active</span>
+                  <span class='badge badge-secondary'>featured</span>
                 </div>
                 <p class=''>status indicators help communicate state.</p>
               </div>
@@ -90,14 +98,11 @@ export const DesignPreview = () => {
         </section>
 
         {/* forms section */}
-        <section>
-          <h2 class=''>form elements</h2>
+        <section class='group-responsive-row'>
+          <h2 class=''>Forms</h2>
           <div class=''>
-            <div class=''>
-              <h3 class=''>sample form</h3>
-              <p class=''>form inputs and controls</p>
-            </div>
-            <form class=''>
+            <p class=''>form inputs and controls</p>
+            <form class='group-col'>
               <div>
                 <label class=''>email</label>
                 <input type='email' class='' placeholder='enter your email' />
@@ -113,10 +118,10 @@ export const DesignPreview = () => {
               </div>
 
               <div class=''>
-                <button type='submit' class=''>
+                <button type='submit' class='btn btn-primary'>
                   submit
                 </button>
-                <button type='button' class=''>
+                <button type='button' class='btn btn-neutral'>
                   draft
                 </button>
               </div>
@@ -125,34 +130,35 @@ export const DesignPreview = () => {
         </section>
 
         {/* badges section */}
-        <section>
-          <h2 class=''>badges</h2>
+        <section class='group-responsive-row'>
+          <h2 class=''>Badges</h2>
           <div class=''>
-            <div>
-              <h3 class=''>status badges</h3>
-              <div class=''>
-                <span class=''>primary</span>
-                <span class=''>secondary</span>
-                <span class=''>success</span>
-                <span class=''>warning</span>
-                <span class=''>error</span>
-              </div>
+            <div class='group-col'>
+              <span class='badge badge-primary'>primary</span>
+              <span class='badge badge-neutral'>neutral</span>
+              <span class='badge badge-secondary'>secondary</span>
+              <span class='badge badge-success'>success</span>
+              <span class='badge badge-warning'>warning</span>
+              <span class='badge badge-destructive'>destructive</span>
             </div>
           </div>
         </section>
 
         {/* typography section */}
-        <section>
-          <h2 class=''>typography</h2>
-          <div class=''>
+        <section class='group-responsive-row'>
+          <h2 class=''>Typography</h2>
+          <div class='group-col'>
             <h1 class=''>heading 1</h1>
             <h2 class=''>heading 2</h2>
             <h3 class=''>heading 3</h3>
+            <h4 class=''>heading 4</h4>
+            <h5 class=''>heading 5</h5>
+            <h6 class=''>heading 6</h6>
             <p class=''>
               this is regular body text. it should be easily readable with good
               contrast against the background in both light and dark modes.
             </p>
-            <p class=''>
+            <p class='text-muted'>
               this is muted text, used for less important information like
               descriptions and supplementary content.
             </p>
@@ -160,31 +166,49 @@ export const DesignPreview = () => {
         </section>
 
         {/* color palette */}
-        <section>
-          <h2 class=''>color palette</h2>
-          <div class=''>
+        <section class='group-responsive-row'>
+          <h2 class=''>Color Palette</h2>
+          <div class='group-col'>
             <div class=''>
-              <div class='' style={{ background: 'var(--primary)' }}></div>
+              <div
+                class='h-8 w-32'
+                style={{ background: 'var(--primary)' }}
+              ></div>
               <p class=''>primary</p>
             </div>
             <div class=''>
-              <div class='' style={{ background: 'var(--secondary)' }}></div>
+              <div
+                class='h-8 w-32'
+                style={{ background: 'var(--secondary)' }}
+              ></div>
               <p class=''>secondary</p>
             </div>
             <div class=''>
-              <div class='' style={{ background: 'var(--accent)' }}></div>
+              <div
+                class='h-8 w-32'
+                style={{ background: 'var(--accent)' }}
+              ></div>
               <p class=''>accent</p>
             </div>
             <div class=''>
-              <div class='' style={{ background: 'var(--success)' }}></div>
+              <div
+                class='h-8 w-32'
+                style={{ background: 'var(--success)' }}
+              ></div>
               <p class=''>success</p>
             </div>
             <div class=''>
-              <div class='' style={{ background: 'var(--warning)' }}></div>
+              <div
+                class='h-8 w-32'
+                style={{ background: 'var(--warning)' }}
+              ></div>
               <p class=''>warning</p>
             </div>
             <div class=''>
-              <div class='' style={{ background: 'var(--destructive)' }}></div>
+              <div
+                class='h-8 w-32'
+                style={{ background: 'var(--destructive)' }}
+              ></div>
               <p class=''>destructive</p>
             </div>
           </div>

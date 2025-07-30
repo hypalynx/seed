@@ -24,6 +24,12 @@
   text-decoration: none;
 }
 
+@media (max-width: 64rem) {
+  .btn {
+    width: 100%;
+  }
+}
+
 .btn:focus {
   outline: none;
   box-shadow:
@@ -97,13 +103,24 @@
   background: var(--bg-secondary);
 }
 
+.btn-disabled:hover {
+  cursor: not-allowed;
+}
+
 .card {
+  width: fit-content;
   background: var(--bg);
-  border: 1px solid var(--border);
+  border: var(--border) solid var(--base-300);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s ease-in-out;
+}
+
+@media (max-width: 64rem) {
+  .card {
+    width: 100%;
+  }
 }
 
 .card:hover {
@@ -122,65 +139,53 @@
 }
 
 .card-description {
-  color: var(--text-muted);
+  color: var(--base-600);
   margin: 0;
 }
 
-/* Input components */
-.input {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg);
-  color: var(--text);
-  font-size: 0.875rem;
-  transition: border-color 0.2s ease-in-out;
-}
-
-.input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px var(--primary);
-}
-
-.input::placeholder {
-  color: var(--text-muted);
+.card-description > * + * {
+  margin-top: var(--2);
 }
 
 /* Badge component */
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border-radius: var(--radius-sm);
+  padding: var(--1) var(--4);
+  font-size: var(--3);
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: var(--radius-badge);
 }
 
 .badge-primary {
   background: var(--primary);
-  color: var(--primary-foreground);
+  color: var(--primary-content);
+}
+
+.badge-neutral {
+  background: var(--neutral);
+  color: var(--neutral-content);
 }
 
 .badge-secondary {
   background: var(--secondary);
-  color: var(--secondary-foreground);
+  color: var(--secondary-content);
 }
 
 .badge-success {
   background: var(--success);
-  color: var(--success-foreground);
+  color: var(--success-content);
 }
 
 .badge-warning {
   background: var(--warning);
-  color: var(--warning-foreground);
+  color: var(--warning-content);
 }
 
 .badge-destructive {
   background: var(--destructive);
-  color: var(--destructive-foreground);
+  color: var(--destructive-content);
 }
 
 .tech-card {

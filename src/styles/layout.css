@@ -22,6 +22,14 @@
   }
 }
 
+.group-col {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--8);
+}
+
 /* perhaps these should be the same?
 /* more for containing atomic elements e.g list of buttons */
 .group-row {
@@ -34,6 +42,7 @@
 /* more for big layout components */
 .group-responsive-row {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--8);
   > :first-child {
     min-width: 40%;

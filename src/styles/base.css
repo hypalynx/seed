@@ -2,7 +2,7 @@ body {
   background-color: var(--base-100);
   color: var(--base-content);
   font-family: 'Manrope', sans-serif;
-  font-size: 120%;
+  font-size: 100%;
 }
 
 #app {
@@ -11,6 +11,89 @@ body {
   gap: var(--8);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--16);
+}
+
+h2 {
+  font-size: var(--8);
+}
+
+h3 {
+  font-size: var(--6);
+}
+
 h4 {
+  font-size: var(--4);
+  color: var(--base-500);
   text-transform: uppercase;
+}
+
+h5 {
+  font-size: var(--3);
+  color: var(--base-500);
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: var(--2);
+  color: var(--base-500);
+  text-transform: uppercase;
+}
+
+p {
+  max-width: 35rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  height: fit-content;
+  accent-color: var(--primary);
+  padding: var(--2) var(--4);
+  border: var(--border) solid var(--base-400);
+  border-radius: var(--radius);
+  background: var(--base-100);
+  color: var(--text);
+  transition: border-color 0.2s ease-in-out;
+  max-width: 35rem;
+}
+
+input[type='image'],
+input[type='range'],
+input[type='color'],
+input[type='file'] {
+  border: 0px;
+  padding: 0px;
+  border-radius: 0px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+input::placeholder {
+  color: var(--base-400);
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  height: var(--6);
+  width: var(--6);
+}
+
+input[type='color'] {
+  height: 100px;
+  width: 100px;
 }
