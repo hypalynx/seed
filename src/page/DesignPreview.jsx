@@ -1,7 +1,15 @@
 import { ToggleSwitch } from '../component/ToggleSwitch'
 import { Stepper } from '../component/Stepper'
 import { Accordian } from '../component/Accordian'
-import { Info, TriangleAlert, CircleX, CircleCheckBig } from 'lucide-preact'
+import {
+  Info,
+  TriangleAlert,
+  CircleX,
+  CircleCheckBig,
+  Star,
+  Clock,
+  PersonStanding,
+} from 'lucide-preact'
 
 export const DesignPreview = () => {
   return (
@@ -132,13 +140,14 @@ export const DesignPreview = () => {
             <button class='btn btn-disabled' disabled>
               disabled
             </button>
+            <button class='btn btn-small btn-neutral'>small</button>
           </div>
         </section>
 
         {/* cards section */}
         <section>
           <h2 class=''>Cards</h2>
-          <div class='group-row'>
+          <div class='group-col'>
             <div class='card'>
               <div class='card-header'>
                 <h3 class='card-title'>simple card</h3>
@@ -175,6 +184,65 @@ export const DesignPreview = () => {
                   <span class='badge badge-secondary'>featured</span>
                 </div>
                 <p class=''>status indicators help communicate state.</p>
+              </div>
+            </div>
+
+            <div class='card group-col'>
+              <div class='card-header'>
+                <h3 class='card-title'>Morning Tennis Workout</h3>
+                <p class=''>With Ihab Mansouri</p>
+                <span class='group-row-1'>
+                  <Star class='fill-warning' />
+                  <Star class='fill-warning' />
+                  <Star class='fill-warning' />
+                  <Star class='fill-warning' />
+                  <Star class='fill-warning' />
+                  5.0
+                  <a href='#'>(5 reviews)</a>
+                </span>
+              </div>
+              <div class='card-description'>
+                <div class='gap-2'>
+                  <div class='mini-card'>
+                    <Clock />
+                    20 mins
+                  </div>
+                  <div class='mini-card'>
+                    <Clock />
+                    Beginner
+                  </div>
+                  <div class='mini-card'>
+                    <Clock />
+                    Techno
+                  </div>
+                  <div class='mini-card'>
+                    <PersonStanding />
+                    Racket
+                  </div>
+                </div>
+                <p class=''>
+                  Every Tuesday and Thursday at dawn, Ihab Mansouri brings his
+                  legendary fitness regimen to Riverside Tennis Club. The
+                  seventeen-time Grand Slam champion has designed a
+                  high-intensity workout that uses tennis drills, footwork, and
+                  cardio intervals to deliver a full-body burn that leaves
+                  participants exhausted and exhilarated.
+                </p>
+                <p>
+                  Ihab's "Tennis Bootcamp" combines explosive movement drills
+                  with racket-based exercises, creating a workout that builds
+                  stamina, agility, and core strength. Participants sprint
+                  between cones, practice rapid-fire volleys against the wall,
+                  and engage in his signature "Court Suicide" runs. The waiting
+                  list stretches months because former students rave about
+                  getting into the best shape of their lives while having a
+                  blast on the court.
+                </p>
+              </div>
+              <div class='w-full'>
+                <a href='#' class='btn btn-primary w-full'>
+                  Join Top Spin
+                </a>
               </div>
             </div>
           </div>

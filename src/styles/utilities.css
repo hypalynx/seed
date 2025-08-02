@@ -45,7 +45,7 @@
 }
 
 .mx-auto {
-  margin: 0 auto;
+  margin-inline: auto;
 }
 .p-4 {
   padding: var(--4);
@@ -93,4 +93,18 @@
 
 .w-32 {
   width: var(--32);
+}
+
+.w-full {
+  width: 100%;
+}
+
+.fill-primary {
+  color: var(--primary);
+  fill: currentColor;
+}
+
+.fill-warning {
+  color: var(--warning);
+  fill: currentColor;
 }

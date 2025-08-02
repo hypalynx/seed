@@ -25,6 +25,12 @@
   text-decoration: none;
 }
 
+.btn-small {
+  padding: var(--3) var(--4);
+  font-size: var(--4);
+  line-height: var(--4);
+}
+
 @media (max-width: 64rem) {
   .btn {
     width: 100%;
@@ -131,8 +137,21 @@
   margin-top: var(--2);
 }
 
+.mini-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: var(--24);
+  width: var(--24);
+  border: 1px solid var(--base-500);
+  border-radius: var(--radius);
+}
+
 /* Badge component */
 .badge {
+  height: fit-content;
   display: inline-flex;
   align-items: center;
   padding: var(--1) var(--4);
