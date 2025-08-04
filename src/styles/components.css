@@ -23,6 +23,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: capitalize;
   text-decoration: none;
+  user-select: none;
 }
 
 .btn-small {
