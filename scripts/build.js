@@ -43,6 +43,9 @@ const configs = {
       '.otf': 'file',
       '.eot': 'file',
     },
+    define: {
+      'process.env.RELOAD': isWatch ? 'true' : 'false',
+    },
     outdir: 'dist/assets',
   },
 }

@@ -42,6 +42,13 @@ app.get('/health', (req, res) => {
   })
 })
 
+if (config.environment === 'development') {
+  app.get('/assets-manifest.json', (req, res) => {
+    assets = loadAssetManifest()
+    res.json(assets)
+  })
+}
+
 app.get('*', (req, res) => {
   try {
     if (config.environment === 'development') {
