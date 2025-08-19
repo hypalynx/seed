@@ -1,5 +1,7 @@
 # Stack
 
+_THE stack for getting stuff done!_
+
 ## Getting Started
 
 - `npm run dev` to run this in watch mode.

@@ -1,0 +1,5 @@
+-- -- Custom SQL (generally index/triggers that don't fit in generic table.sql
+-- -- can be executed here during database.migration.
+-- CREATE INDEX IF NOT EXISTS idx_users_email ON users (json_extract (data, '$.email'))
+-- WHERE
+--   json_extract (data, '$.email') IS NOT NULL;

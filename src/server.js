@@ -1,70 +1,56 @@
 import express from 'express'
-import path from 'node:path'
-import { readFileSync } from 'node:fs'
-import { render } from 'preact-render-to-string'
-import { h } from 'preact'
-import { App } from './App.jsx'
-import { parse } from 'yaml'
-import { Router } from 'wouter-preact'
-import { createHTML } from './page'
+import { loadConfig } from './config.js'
+import { logger, httpLogger } from './logger.js'
+import * as database from './database.js'
+import { Worker } from 'node:worker_threads'
+import routes from './routes.js'
+import { fileURLToPath } from 'url'
+import 'source-map-support/register.js'
 
-const config = parse(readFileSync('./app.yaml', 'utf8')) // TODO handle if missing?
-console.log(`environment: ${config['environment']}`)
+export const server = configPath => {
+  return new Promise((resolve, reject) => {
+    const config = loadConfig(configPath)
+    logger.info(`environment: ${config['environment']}`)
 
-function loadAssetManifest() {
-  try {
-    return JSON.parse(readFileSync('./dist/assets-manifest.json', 'utf8'))
-  } catch {
-    console.warn('⚠️  No asset manifest found, using original filenames')
-    return {}
-  }
-}
+    const db = database.connect(config.database)
 
-let assets = loadAssetManifest()
-console.log('📦 Loaded asset manifest:', assets)
+    const app = express()
+    const port = config.port || 3000
+    let worker = null
 
-const app = express()
-const port = config.port || 3000
-const workspace = process.cwd()
+    app.use(httpLogger)
+    app.use(express.json()) // Parse JSON bodies
+    app.use(express.urlencoded({ extended: true })) // Parse form data
 
-app.use(
-  '/assets',
-  express.static(path.join(workspace, 'dist', 'assets'), {
-    maxAge: '1y', // 1 year cache since filenames change when content changes
-    immutable: true,
-  }),
-)
+    routes.setup(config.environment, app, db)
 
-app.get('/health', (req, res) => {
-  res.json({
-    status: 'healthy',
-    timestamp: new Date().toISOString(),
-  })
-})
+    const serverInstance = app.listen(port, () => {
+      console.log(`🔥 Stack listening on port ${port}`)
+      console.log(`📍 Health check: http://localhost:${port}/health`)
 
-if (config.environment === 'development') {
-  app.get('/assets-manifest.json', (req, res) => {
-    assets = loadAssetManifest()
-    res.json(assets)
-  })
-}
+      if (config.worker) {
+        worker = new Worker('./dist/worker.js')
+      }
 
-app.get('*', (req, res) => {
-  try {
-    if (config.environment === 'development') {
-      assets = loadAssetManifest() // keep checking for new assets in dev
+      resolve(serverInstance)
+    })
+
+    serverInstance.on('error', reject)
+
+    const shutdown = async () => {
+      serverInstance.close()
+      await db.close?.()
+      if (worker) await worker.terminate()
+      process.exit(0)
     }
-    const appHtml = render(h(Router, { ssrPath: req.path }, h(App)))
-    // Short cache for HTML since it contains asset references
-    res.set('Cache-Control', 'public, max-age=300') // 5 minutes
-    res.send(createHTML(appHtml, { assetBase: '/assets', assets }))
-  } catch (error) {
-    console.error('SSR Error:', error)
-    res.status(500).send('Internal Server Error')
-  }
-})
 
-app.listen(port, () => {
-  console.log(`🔥 Stack listening on port ${port}`)
-  console.log(`📍 Health check: http://localhost:${port}/health`)
-})
+    serverInstance.shutdown = shutdown
+    ;['SIGTERM', 'SIGINT'].forEach(sig => process.on(sig, shutdown))
+  })
+}
+
+const __filename = fileURLToPath(import.meta.url)
+if (process.argv[1] === __filename) {
+  const configPath = process.argv[2] || './app.yaml'
+  server(configPath)
+}
