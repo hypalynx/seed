@@ -5,9 +5,17 @@ export const Nav = () => {
   const [theme, setTheme] = useState('light')
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    document.documentElement.setAttribute('data-theme', newTheme)
+    const userPrefersDark =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    const current = document.documentElement.getAttribute('data-theme')
+
+    let newValue = current !== 'dark' ? 'dark' : 'light'
+    if (current === null) {
+      newValue = userPrefersDark ? 'light' : 'dark'
+    }
+
+    document.documentElement.setAttribute('data-theme', newValue)
   }
 
   return (
